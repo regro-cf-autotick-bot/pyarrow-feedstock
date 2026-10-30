@@ -179,6 +179,7 @@ outputs:
         # Default doesn't contain flight, flight-sql and gandiva
         - libarrow-acero {{ version }}.*
         - libarrow-dataset {{ version }}.*
+        - libarrow-s3 {{ version }}.*
         - libarrow-substrait {{ version }}.*
         - libparquet {{ version }}.*
         - python
@@ -190,6 +191,7 @@ outputs:
         # default pyarrow contains parquet
         - pyarrow.dataset
         - pyarrow.parquet
+        - pyarrow._s3fs
       commands:
         # Expected not included libraries
         - test ! -f $PREFIX/lib/libarrow_flight${SHLIB_EXT}                        # [unix]
@@ -215,7 +217,6 @@ outputs:
         - libarrow-flight {{ version }}.*
         - libarrow-flight-sql {{ version }}.*
         - libarrow-gandiva {{ version }}.*
-        - libarrow-s3 {{ version }}.*
         - libarrow-substrait {{ version }}.*
         - python
 
@@ -224,7 +225,6 @@ outputs:
         - pyarrow.flight
         - pyarrow.gandiva
         - pyarrow.substrait
-        - pyarrow._s3fs
     about:
       home: http://github.com/apache/arrow
       license: Apache-2.0
